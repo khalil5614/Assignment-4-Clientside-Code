@@ -34,7 +34,9 @@ function Course({ course }) {
       </figure>
       <div className="card-body ">
         <h1 className="card-title">{title}</h1>
-        <p className="line-clamp-2">{details}</p>
+        <div>
+          <p className="line-clamp-2">{details}</p>
+        </div>
 
         <p className="text-gray-500">
           <span>Facilitated By: {author}</span>
