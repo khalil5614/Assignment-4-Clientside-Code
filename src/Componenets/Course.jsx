@@ -1,37 +1,57 @@
 import React from "react";
-import Ratings from "./shared/Ratings";
-import { Link, useNavigate } from "react-router-dom";
 
-function Book({ book }) {
-  //console.log("Book= ", book);
-  const { bookId, bookName, image, tags, author, category, rating } = book;
+import { Link, useNavigate } from "react-router-dom";
+import Ratings from "./shared/Ratings";
+
+function Course({ course }) {
+  const {
+    _id,
+    course_id,
+    title,
+    details,
+    lession,
+    student,
+    duration,
+    price,
+    assessments,
+    author,
+    level,
+    ratings,
+    author_img_url,
+    img_url,
+  } = course;
+
   const navigate = useNavigate();
-  const bookDetails = (id) => {
-    navigate(`/bookdetails/${id}`, {
-      state: book,
+  const courseDetails = (id) => {
+    navigate(`/products/${id}`, {
+      state: course,
     });
   };
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
-      <figure className="px-10 pt-10">
-        <img src={image} alt={bookName} className="rounded-xl" />
+    <div className="card bg-base-100 shadow-xl">
+      <figure>
+        <img src={img_url} alt={title} className="rounded-xl h-40 max-w-fit" />
       </figure>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">{bookName}</h2>
-        <h3>{author}</h3>
-        <h4>{category}</h4>
-        <p>
-          {tags.map((tag) => (
-            <span key={tag}>{tag} </span>
-          ))}
+      <div className="card-body ">
+        <h1 className="card-title">{title}</h1>
+        <p className="text-ellipsis line-clamp-2">{details}</p>
+
+        <p className="text-gray-500">
+          <span>Facilitated By: {author}</span>
         </p>
-        <Ratings rating={rating}></Ratings>
-        <div className="card-actions">
+
+        <Ratings ratings={ratings}></Ratings>
+        <div className="text-gray-500">
+          <span>{lession} Lectures.</span>
+          <span> {duration}.</span>
+          <span> {level} Level</span>
+        </div>
+        <div className="card-actions  ">
           <button
-            onClick={() => bookDetails(bookId)}
-            className="btn btn-primary"
+            onClick={() => courseDetails(course_id)}
+            className="btn bg-orange-200 mx-auto mt-10"
           >
-            Book Details
+            View Details
           </button>
         </div>
       </div>
@@ -39,4 +59,4 @@ function Book({ book }) {
   );
 }
 
-export default Book;
+export default Course;
