@@ -1,15 +1,29 @@
 import React from "react";
+import logo from "/logo.png";
 
 const FooterComponent = () => {
   return (
-    <footer className="footer footer-center bg-blue-100 text-base-content rounded p-10 mt-5">
-      <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
-      </nav>
+    <footer className="footer bg-neutral text-neutral-content p-10 mt-10">
+      <aside>
+        <img className="w-20" src={logo} alt="Logo" />
+        <p>
+          <b>Address:</b>
+          <br></br>
+          1234 Tech Lane, Suite 100
+          <br></br>
+          Innovation City, TX 75001, USA
+        </p>
+        <p>
+          <b>Phone: </b>
+          +1 (123) 456-7890
+        </p>
+        <p>
+          <b>Email: </b>
+          support@codecloud.com
+        </p>
+      </aside>
       <nav>
+        <h6 className="footer-title">Social</h6>
         <div className="grid grid-flow-col gap-4">
           <a>
             <svg
@@ -46,12 +60,6 @@ const FooterComponent = () => {
           </a>
         </div>
       </nav>
-      <aside>
-        <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by Book
-          Store Ltd
-        </p>
-      </aside>
     </footer>
   );
 };

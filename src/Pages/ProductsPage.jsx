@@ -13,11 +13,11 @@ const ProductsPage = () => {
   //const courses = useLoaderData();
   return (
     <>
-      <div className="mt-5 p-2">
-        <h1 className="text-2xl p-2 mb-1 font-semibold">Popular Courses</h1>
+      <div className="mt-5 p-2 w-10/12 mx-auto">
+        <h1 className="text-2xl p-2 mb-1 font-semibold">Courses</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {courses.map((course) => (
-            <Course key={course.courseId} course={course}></Course>
+            <Course key={course.course_id} course={course}></Course>
           ))}
         </div>
       </div>

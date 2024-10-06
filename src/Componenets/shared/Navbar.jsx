@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 function Navbar() {
-  const [currentUser, setcurrentUser] = useState();
+  const { currentUser, logIn, logOut } = useContext(AuthContext);
+  console.log("Current User= ", currentUser);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -38,7 +41,7 @@ function Navbar() {
         <Link to={"/"}>
           <div className="btn btn-ghost">
             <img className="w-14" src={logo} alt="Logo" />
-            <a className="text-xl">Code Cloud</a>
+            <div className="text-xl">Code Cloud</div>
           </div>
         </Link>
       </div>
@@ -62,7 +65,7 @@ function Navbar() {
             </div>
           </div>
         ) : (
-          <a className="btn btn-secondary ">Log In</a>
+          <div className="btn btn-secondary px-10 h-10">Log In</div>
         )}
       </div>
     </div>
