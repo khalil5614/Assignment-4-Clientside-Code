@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Ratings from "../Componenets/shared/Ratings";
 import { useLoaderData, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
 //import { Slide, ToastContainer, toast } from "react-toastify";
 //import "react-toastify/dist/ReactToastify.css";
 
@@ -8,40 +9,26 @@ function ProductDetailsPage() {
   //const [course, setCourse] = useState();
   const { id } = useParams();
   const course = useLoaderData();
-  // useEffect(() => {
-  //   fetch(
-  //     `https://assignment-4-server-side-code.vercel.app/api/courses/${id}`
-  //   ).then((response) => response.json().then((data) => setCourse(data)));
-  // }, course);
-  //console.log(course);
-  // const {
-  //   _id,
-  //   course_id,
-  //   title,
-  //   details,
-  //   lession,
-  //   student,
-  //   duration,
-  //   price,
-  //   assessments,
-  //   author,
-  //   level,
-  //   ratings,
-  //   author_img_url,
-  //   img_url,
-  // } = course;
+  useEffect(() => {
+    fetch(
+      `https://assignment-4-server-side-code.vercel.app/api/courses/${id}`
+    ).then((response) => response.json().then((data) => setCourse(data)));
+  }, course);
+  console.log(course);
+  const { course_id, title } = course;
 
-  // const notifyWishlist = () =>
-  //   toast(
-  //     bookId +
-  //       " " +
-  //       bookName +
-  //       " has been successfully added to Add to Wishlist."
-  //   );
-  // const notifyAddCart = () =>
-  //   toast(
-  //     bookId + " " + bookName + " has been successfully added to Add to Cart."
-  //   );
+  const notifyWishlist = () => {
+    toast.success(`${title} has been successfully added to Add to Wishlist.`, {
+      position: "top-right",
+    });
+  };
+
+  const notifyAddCart = () => {
+    toast.success(`${title} has been successfully added to Add to Cart.`, {
+      position: "top-right",
+    });
+  };
+
   return (
     <div className="w-10/12 mx-auto">
       <div className="flex ">

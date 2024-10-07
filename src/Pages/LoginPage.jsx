@@ -27,7 +27,7 @@ const LoginPage = () => {
           position: "top-right",
         });
 
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/products");
       })
       .catch((error) => {
         console.log("Login error", error);
@@ -41,7 +41,7 @@ const LoginPage = () => {
           position: "top-right",
         });
 
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/products");
       })
       .catch((error) => {
         console.log(error);
@@ -55,7 +55,7 @@ const LoginPage = () => {
           position: "top-right",
         });
 
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/products");
       })
       .catch((error) => {
         console.log(error);
