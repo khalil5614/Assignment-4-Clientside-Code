@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import logo from "/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 function Navbar() {
   const { currentUser, logOut } = useContext(AuthContext);
   console.log("Current User= ", currentUser);
-
+  const navigate = useNavigate();
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -68,10 +68,13 @@ function Navbar() {
       </div>
       <div className="navbar-end">
         {currentUser ? (
-          <div>
-            <p></p>
-            <img src="" alt="" />
-            <div onClick={handleLogOut} className="btn btn-secondary">
+          <div className="flex items-center gap-1">
+            <img src={currentUser?.photoURL} className="w-7 rounded-full" />
+            <span>{currentUser?.displayName}</span>
+            <div
+              onClick={handleLogOut}
+              className="btn btn-secondary px-10 h-10"
+            >
               Log Out
             </div>
           </div>
