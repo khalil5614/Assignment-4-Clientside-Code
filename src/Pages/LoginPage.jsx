@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -7,6 +7,7 @@ const LoginPage = () => {
   const { currentUser, logIn, logInWithGoogle } = useContext(AuthContext);
   console.log("Current User= ", currentUser);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -24,6 +25,7 @@ const LoginPage = () => {
         toast.success("User Login Successful", {
           position: "top-right",
         });
+
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
@@ -37,6 +39,7 @@ const LoginPage = () => {
         toast.success("User Login Successful", {
           position: "top-right",
         });
+
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {

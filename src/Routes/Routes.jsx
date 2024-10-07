@@ -6,6 +6,7 @@ import ProductDetailsPage from "../Pages/ProductDetailsPage";
 import ErrorPage from "../Pages/ErrorPage";
 import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
 
       {
         path: "/products",
-        element: <ProductsPage />,
+        element: (
+          <PrivateRoute>
+            <ProductsPage />,
+          </PrivateRoute>
+        ),
         loader: () =>
           fetch("https://assignment-4-server-side-code.vercel.app/api/courses"),
       },

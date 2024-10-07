@@ -1,7 +1,6 @@
 import React from "react";
 
 const Procedure = ({ work }) => {
-  console.log("Procedure= ");
   const { title, details } = work;
   return (
     <div className="p-3 rounded-lg border-2 m-2 bg-gray-50">
