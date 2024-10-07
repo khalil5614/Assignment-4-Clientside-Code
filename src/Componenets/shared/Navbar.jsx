@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 function Navbar() {
-  const { currentUser, logIn, logOut } = useContext(AuthContext);
+  const { currentUser, logOut } = useContext(AuthContext);
   console.log("Current User= ", currentUser);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -60,12 +71,14 @@ function Navbar() {
           <div>
             <p></p>
             <img src="" alt="" />
-            <div to={"/"} className="btn btn-secondary">
+            <div onClick={handleLogOut} className="btn btn-secondary">
               Log Out
             </div>
           </div>
         ) : (
-          <div className="btn btn-secondary px-10 h-10">Log In</div>
+          <Link to={"/login"} className="btn btn-secondary px-10 h-10">
+            Log In
+          </Link>
         )}
       </div>
     </div>
