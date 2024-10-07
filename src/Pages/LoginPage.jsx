@@ -50,8 +50,8 @@ const LoginPage = () => {
 
   const handlelogInWithGithub = () => {
     logInWithGithub()
-      .then(() => {
-        toast.success("User Login Successfully", {
+      .then((result) => {
+        toast.success("User Login Successfully with Github", {
           position: "top-right",
         });
 

@@ -47,7 +47,7 @@ const HowWorks = () => {
     },
   ];
 
-  console.log("HowWorks");
+  //console.log("HowWorks");
   return (
     <section>
       <div>
