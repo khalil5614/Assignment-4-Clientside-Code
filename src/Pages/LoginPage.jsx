@@ -4,7 +4,8 @@ import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const LoginPage = () => {
-  const { currentUser, logIn, logInWithGoogle } = useContext(AuthContext);
+  const { currentUser, logIn, logInWithGoogle, logInWithGithub } =
+    useContext(AuthContext);
   console.log("Current User= ", currentUser);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,7 +23,7 @@ const LoginPage = () => {
     logIn({ email: email, password: password })
       .then((result) => {
         console.log(result.user);
-        toast.success("User Login Successful", {
+        toast.success("User Login Successfully", {
           position: "top-right",
         });
 
@@ -36,7 +37,7 @@ const LoginPage = () => {
   const handlelogInWithGoogle = () => {
     logInWithGoogle()
       .then(() => {
-        toast.success("User Login Successful", {
+        toast.success("User Login Successfully", {
           position: "top-right",
         });
 
@@ -46,6 +47,21 @@ const LoginPage = () => {
         console.log(error);
       });
   };
+
+  const handlelogInWithGithub = () => {
+    logInWithGithub()
+      .then(() => {
+        toast.success("User Login Successfully", {
+          position: "top-right",
+        });
+
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen p-10">
@@ -113,7 +129,7 @@ const LoginPage = () => {
               </button>
 
               <button
-                // onClick={handleGitHubSignin}
+                onClick={handlelogInWithGithub}
                 type="button"
                 className="btn btn-outline btn-info mt-2 "
               >

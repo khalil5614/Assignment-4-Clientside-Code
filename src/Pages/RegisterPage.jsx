@@ -20,7 +20,7 @@ const RegisterPage = () => {
     signup({ email: email, password: password })
       .then((result) => {
         console.log(result.user);
-        toast.success("User Signup Successful", {
+        toast.success("User Signup Successfully", {
           position: "top-right",
         });
         navigate(location?.state ? location.state : "/");
