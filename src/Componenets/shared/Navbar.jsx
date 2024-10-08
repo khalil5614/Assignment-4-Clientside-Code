@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import logo from "/logo.png";
+import React, { useContext } from "react";
+import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -50,30 +50,30 @@ function Navbar() {
           </ul>
         </div>
         <Link to={"/"}>
-          <div className="btn btn-ghost">
-            <img className="w-14" src={logo} alt="Logo" />
-            <div className="text-xl">Code Cloud</div>
+          <div className="btn btn-ghost justify-start">
+            <img className="w-14 justify-start" src={logo} alt="Logo" />
+            <p className="text-xl max-sm:hidden">Code Cloud</p>
           </div>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
+        <ul className="menu menu-horizontal px-5">
+          <li className="mx-1 text-lg">
             <Link to={"/"}>Home</Link>
           </li>
-          <li>
+          <li className="text-lg">
             <Link to={"/products"}>Products</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
         {currentUser ? (
-          <div className="flex items-center gap-1">
-            <img src={currentUser?.photoURL} className="w-7 rounded-full" />
-            <span>{currentUser?.displayName}</span>
+          <div className="flex  items-center gap-1">
+            <span className="max-sm:hidden">{currentUser?.displayName}</span>
+            <img src={currentUser?.photoURL} className="w-9 rounded-full" />
             <div
               onClick={handleLogOut}
-              className="btn btn-secondary px-10 h-10"
+              className="btn btn-secondary px-5 lg:px-10 h-10"
             >
               Log Out
             </div>

@@ -30,21 +30,21 @@ function ProductDetailsPage() {
   };
 
   return (
-    <div className="w-10/12 mx-auto">
-      <div className="flex ">
-        <div className="w-3/5 p-5">
-          <h1 className="text-5xl p-1">{course?.title}</h1>
+    <div className="w-10/12 mx-auto py-5">
+      <div className="flex flex-col-reverse md:flex-row">
+        <div className="w-full md:w-3/5 ">
+          <h1 className="text-5xl">{course?.title}</h1>
           <p className="py-5">{course?.details}</p>
 
           <Ratings ratings={course?.ratings}></Ratings>
           <p className="py-2">
             <b>{course?.student}</b> Student Enrolled
           </p>
-          <div className="bg-slate-100 p-5 flex justify-between rounded-lg">
-            <p>{course?.lession} Lectures.</p>
-            <p> {course?.duration}.</p>
-            <p> {course?.level} Level</p>
-            <p> {course?.assessments} Assessment</p>
+          <div className="bg-slate-100 p-5 grid grid-cols-2  lg:flex justify-between rounded-lg">
+            <p className="m-1">{course?.lession} Lectures.</p>
+            <p className="m-1"> {course?.duration}.</p>
+            <p className="m-1"> {course?.level} Level</p>
+            <p className="m-1"> {course?.assessments} Assessment</p>
           </div>
           <div className="px-5 py-3 my-2 bg-slate-100 rounded-lg">
             <p>
@@ -59,9 +59,9 @@ function ProductDetailsPage() {
             </div>
           </div>
         </div>
-        <div className="w-2/5 p-5">
-          <img src={course?.img_url} />
-          <p className="text-5xl font-semibold text-yellow-600 py-5">
+        <div className="w-full md:w-2/5 pl-0  md:pl-5">
+          <img className="w-full max-h-60" src={course?.img_url} />
+          <p className="text-3xl font-semibold text-yellow-600 py-5">
             {course?.price}৳
           </p>
         </div>

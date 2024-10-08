@@ -5,7 +5,7 @@ const ContactUs = () => {
     <div>
       <h1 className="text-3xl text-center font-bold mt-12">Contact Us</h1>
 
-      <div className="w-2/5">
+      <div className="w-11/12 md:w-5/12">
         <label className="input input-bordered flex items-center gap-2 m-2">
           Name
           <input type="text" className="grow pl-2" placeholder="Type Here" />

@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <div>
       <Banner />
-      <div className="w-10/12 mx-auto">
+      <div className="w-11/12 lg:w-10/12 mx-auto">
         <HowWorks />
         <PopularProucts />
         <ContactUs />

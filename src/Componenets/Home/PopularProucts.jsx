@@ -37,7 +37,7 @@ const PopularProucts = () => {
       <h1 className="text-3xl text-center font-bold mt-12 mb-2">
         Popular Courses
       </h1>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {popularCourses.map((course, index) => (
           <div key={index} className="rounded-lg border-2  text-center ">
             <img className="h-40 p-5 m-auto " src={course.image}></img>
